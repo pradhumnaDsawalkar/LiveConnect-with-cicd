@@ -6,6 +6,7 @@ const {addUser,removeUser,getUser,getUsersInRoom}=require('./users');
 const { clearLine } = require('readline');
 const cors=require('cors');
 const axios = require('axios');
+const path = require('path');
 
 const PORT=process.env.PORT || 5000;
 
@@ -18,6 +19,25 @@ const io=socketio(server,{
     }
   });
 app.use(router);
+
+//---------------------deployment-----------------------
+
+const __dirname1 = path.resolve();
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "client", "build")));
+
+    // ✅ Serve index.html for all unknown routes
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+    });
+} else {
+    app.get('/', (req, res) => {
+        res.send('Server is up and running');
+    });
+}
+
+//---------------------deployment-----------------------
+
 
 //Translation function
 const translateMessage = async (text, targetLang) => {
