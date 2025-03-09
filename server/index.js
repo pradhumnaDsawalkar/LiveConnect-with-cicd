@@ -11,6 +11,8 @@ const path = require('path');
 const PORT=process.env.PORT || 5000;
 
 const app=express();
+app.use(cors());
+
 const server=http.createServer(app);
 const io=socketio(server,{
     cors: {
