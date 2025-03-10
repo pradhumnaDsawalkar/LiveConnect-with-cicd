@@ -16,7 +16,7 @@ const Chat=()=>{
     const [room,setRoom]=useState('');
     const [message,setMessage]=useState('');
     const [messages,setMessages]=useState([]);
-    const [language,setLanguage] = useState('');
+    const [language,setLanguage] = useState('en');
     
 
     const ENDPOINT='https://chatappp-nsa4.onrender.com';
@@ -70,7 +70,7 @@ const Chat=()=>{
     return (
         <div className="outerContainer">
             <div className="container">
-            <InfoBar room={room}/>
+            <InfoBar room={room} language={language}/>
             <Messages messages={messages} name={name}/>
             <Input message={message} setMessage={setMessage} sendMessage={sendMessage} handleKeyDown={handleKeyDown}/>
             </div>
