@@ -19,7 +19,7 @@ const Chat=()=>{
     const [language,setLanguage] = useState('');
     
 
-    const ENDPOINT='localhost:5000';
+    const ENDPOINT='https://chatappp-nsa4.onrender.com';
 
     useEffect(()=>{
         const {name,room,language}=queryString.parse(location.search); //Converting the url into object format
