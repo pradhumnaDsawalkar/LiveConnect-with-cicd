@@ -72,7 +72,7 @@ io.on('connection',(socket)=>{
    //When user has been joined this message will come up
     socket.emit('message', {
       user: 'admin',
-      text: await translateMessage(`${user.name}, welcome to the room ${user.room}!`,user.language)
+      text: await translateMessage(`${user.name}, welcome to the Forum!`,user.language)
   });
 
   // 🔹 Loop through each user in the room to send translated message
