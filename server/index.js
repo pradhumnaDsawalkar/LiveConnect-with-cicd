@@ -11,12 +11,12 @@ const path = require('path');
 const PORT=process.env.PORT || 5000;
 
 const app=express();
-app.use(cors());
+app.use(cors({ origin: "*", methods: ["GET", "POST"] }));
 
 const server=http.createServer(app);
 const io=socketio(server,{
     cors: {
-      origin: "http://localhost:4001", // Frontend origin
+      origin: "*", // Frontend origin
       methods: ["GET", "POST"]
     }
   });
