@@ -22,9 +22,10 @@ const [language,setLanguage]=useState('en');
       {/* Language Dropdown */}
       <select onChange={(e) => setLanguage(e.target.value)} value={language}>
                 <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="mr">Marathi</option>
                 <option value="es">Spanish</option>
                 <option value="fr">French</option>
-                <option value="hi">Hindi</option>
                 <option value="de">German</option>
                 <option value="zh-CN">Chinese</option>
       </select>
