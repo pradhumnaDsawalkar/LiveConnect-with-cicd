@@ -129,7 +129,7 @@ io.on('connection',(socket)=>{
         const translatedText = await translateMessage(`${user.name} has left!!`, u.language || "en");
   
         io.to(u.id).emit('message', {
-            user: user.name,
+            user: 'admin',
             text: translatedText
         });
     });
