@@ -1,0 +1,14 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Set NODE_ENV to development before install
+ENV NODE_ENV=development
+
+COPY package.json package-lock.json ./
+
+RUN npm install -g nodemon
+
+COPY . .
+
+CMD ["npm", "start"]

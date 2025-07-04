@@ -11,7 +11,7 @@ const LiveConnectTitle = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        ...Live<span className="text-lime-300">Connect</span> 💬
+        ...LiveConnect<span className="text-lime-300"></span> 💬
       </motion.h1>
     </div>
   );
