@@ -16,10 +16,10 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: Build React Client
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/react-client:latest ./client
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/react-client:latest -f ./client/Dockerfile.dev ./client
 
       - name: Build Node Server
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/node-server:latest ./server
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/node-server:latest -f ./server/Dockerfile.dev ./server
 
       - name: Push React Client Image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/react-client:latest
