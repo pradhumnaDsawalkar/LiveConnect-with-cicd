@@ -3,11 +3,14 @@ FROM node:20-alpine
 WORKDIR /app
 
 COPY package.json package-lock.json ./
-
 RUN npm install
 
 COPY . .
 
 ENV CHOKIDAR_USEPOLLING=true
 
-CMD ["npm", "start"]
+#  Add this to expose the port
+EXPOSE 5173
+
+#  This tells Vite to listen on 0.0.0.0 instead of localhost
+CMD ["npm", "run", "dev", "--", "--host"]
